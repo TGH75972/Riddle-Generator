@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -6,44 +12,176 @@ body {
     height: 100vh;
     background-color: #000000;
     margin: 0;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
     background: #ffffff;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 700px;
+    position: relative;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     color: #333;
     margin-bottom: 20px;
+    font-family: 'Verdana', sans-serif;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
+    padding: 12px 24px;
+    font-size: 18px;
+    margin: 12px;
     cursor: pointer;
     background-color: #000000;
     color: white;
     border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
 }
 
 button:hover {
     background-color: #ffffff;
     color: black;
     border: 2px solid black;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+input {
+    padding: 12px;
+    font-size: 18px;
+    margin: 12px;
+    width: calc(100% - 24px);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Verdana', sans-serif;
+}
+
+#riddle {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+    font-family: 'Verdana', sans-serif;
 }
 
 #answer {
-    font-size: 18px;
+    font-size: 22px;
     color: #ff0000;
     margin-top: 20px;
+    display: none;
+    font-family: 'Verdana', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    
+    input {
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    #riddle, #answer {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    #riddle, #answer {
+        font-size: 16px;
+    }
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    z-index: -1;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    opacity: 0.1;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ff0000;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#riddle, #answer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
 }
